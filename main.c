@@ -14,23 +14,15 @@
 #include "threads/threadpool.h"
 #include <pthread.h>
 
-void task(void *arg) {
-    printf("Thread #%u working on %d\n", (int) pthread_self(), (int) arg);
-}
+//void task(void *arg) {
+//    printf("Thread #%u working on %d\n", (int) pthread_self(), (int) arg);
+//}
 
 int main() {
-    puts("Making finalproject with 4 threads");
-    threadpool thpool = thpool_init(4);
-
-    puts("Adding 40 tasks to finalproject");
-    int i;
-    for (i = 0; i < 40; i++) {
-        thpool_add_work(thpool, task, (void *) (uintptr_t) i);
-    };
-
-    thpool_wait(thpool);
-    puts("Killing finalproject");
-    thpool_destroy(thpool);
-
+    test_strings();
+    test_slice();
+    test_ioutil();
+    test_stack();
+    test_b_link_tree();
     return 0;
 }
